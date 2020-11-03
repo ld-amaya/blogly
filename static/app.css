@@ -1,0 +1,35 @@
+table,td,tr, th{
+    margin: 0 auto;
+    border:1px solid red;
+    border-collapse: collapse;
+    padding:20px;
+    width:40%;
+}
+
+h1{
+    text-align: center;
+}
+
+.user_list{
+    margin: 0 auto;
+}
+.new_user_form{
+    margin:0 auto;
+    width: 40%;
+    border: 1px solid #fdfdfd;
+    border-radius: 10px;
+}
+
+.card{
+    padding:5px;
+    margin:0 auto;
+    border: 1px solid #6d6d6d;
+}
+
+.card-img{
+    padding:5px;
+    width:100%;
+}
+.user_details{
+    padding-top:10%;
+}
