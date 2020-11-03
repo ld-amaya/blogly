@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %} Add new user {% endblock %}
+
+{% block content %} 
+    <h1>{{user.first_name}} Details</h1>
+    <div class="card col-md-6">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img class = "card-img" src ={{user.image_url}}>
+            </div>
+            <div class="col-md-8">
+                <div class="card-body user_details">
+                    <div class="card-title">
+                        <h3> {{user.first_name}} <br/> {{user.last_name}}</h3>
+                    </div>
+                    <div class="card-text">
+                        <form>
+                            <button formaction="/users/{{user.id}}/edit" formethod="GET" class="btn btn-primary btn-sm">Edit</button>
+                            <button formaction="/users/{{user.id}}/delete" formmethod="POST" class = "btn btn-danger btn-sm">Delete</button>
+                            <a href="/" class ="btn btn-success btn-sm">Back</a>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+{% endblock %}

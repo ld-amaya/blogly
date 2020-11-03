@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %} Registration Form {% endblock %}
+
+{% block content %}
+        <div class="col-4 user_list">
+            <h1>List of users</h1>
+            <ol>
+                {% for user in users %}        
+                    <li><a href= '/users/{{user.id}}'>{{user.first_name}} {{user.last_name}}</a></li>
+                {% endfor %}
+            </ol>
+        
+            <form action="/users/new" class = "text-center mt-2 mb-2">
+                <button class = 'btn btn-primary btn-sm'>Add New User</button>
+            </form>
+        </div>
+{% endblock %}
