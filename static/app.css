@@ -3,7 +3,7 @@ table,td,tr, th{
     border:1px solid red;
     border-collapse: collapse;
     padding:20px;
-    width:40%;
+    width:60%;
 }
 
 h1{
@@ -32,4 +32,28 @@ h1{
 }
 .user_details{
     padding-top:10%;
+}
+
+.blog_posts{
+    margin-top: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+}
+
+.deleted{
+    background-color: rgba(255, 68, 68, 0.5);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    display: block;
+}
+
+.updated{
+    background-color: rgba(68, 255, 68, 0.5);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    display: block;
 }
