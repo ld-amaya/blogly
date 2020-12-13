@@ -1,4 +1,4 @@
-from models import Blogly, db
+from models import User, db, Post
 from app import app
 
 
@@ -6,20 +6,45 @@ from app import app
 db.drop_all()
 db.create_all()
 
-Blogly.query.delete()
+User.query.delete()
 
 # Create dummy users
-user1 = Users(first_name='Juan', last_name='Banayad',
-              image_url='https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80')
-user2 = Users(first_name='Dolphy', last_name='Quizon',
-              image_url='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80')
-user3 = Users(first_name='John', last_name='Porontong',
-              image_url='https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80')
+user1 = User(first_name='Juan', last_name='Banayad',
+             image_url='https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80')
+user2 = User(first_name='Dolphy', last_name='Quizon',
+             image_url='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80')
+user3 = User(first_name='John', last_name='Porontong',
+             image_url='https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80')
 
 # Add Users
 db.session.add(user1)
 db.session.add(user2)
 db.session.add(user3)
+
+# Create dummy blog posts
+blog1 = Post(title='First Blog',
+             content='This is my first blog',
+             user_id=1)
+
+blog2 = Post(title='Amazing Blog',
+             content='This is my Amazing blog',
+             user_id=1)
+
+
+blog3 = Post(title='Perfect Blog',
+             content='This is my Perfect blog',
+             user_id=2)
+
+
+blog4 = Post(title='Happy Blog',
+             content='This is my Happy blog',
+             user_id=3)
+
+# Add Blog
+db.session.add(blog1)
+db.session.add(blog2)
+db.session.add(blog3)
+db.session.add(blog4)
 
 # Commit database
 db.session.commit()
