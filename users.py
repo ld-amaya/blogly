@@ -1,4 +1,4 @@
-from models import Blogly, db
+from models import User, db
 
 
 class Users():
@@ -10,16 +10,16 @@ class Users():
 
     def add_user(self):
         """Add new user to the database"""
-        user = Blogly(first_name=self.first_name,
-                      last_name=self.last_name,
-                      image_url=self.image_url)
+        user = User(first_name=self.first_name,
+                    last_name=self.last_name,
+                    image_url=self.image_url)
 
         db.session.add(user)
         db.session.commit()
 
     def update_user(self, id):
-        """Add new user to the database"""
-        user = Blogly.query.get(id)
+        """Update User"""
+        user = User.query.get(id)
         user.first_name = self.first_name
         user.last_name = self.last_name
         user.image_url = self.image_url
