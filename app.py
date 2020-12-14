@@ -23,6 +23,8 @@ def homepage():
     posts = Post.query.order_by(Post.created_at.desc()).all()
     return render_template("/posts/home.html", posts=posts)
 
+######## USERS GET REQUESTS #######################################
+
 
 @app.route("/users")
 def show_all_users():
@@ -50,6 +52,8 @@ def edit_user_details(id):
     user = User.query.get_or_404(id)
     return render_template("user_edit.html", user=user)
 
+
+######## POST GET REQUESTS #######################################
 
 @app.route("/users/<int:id>/posts")
 def get_user_posts():
