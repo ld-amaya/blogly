@@ -35,6 +35,11 @@ class User(db.Model):
 
     post = db.relationship("Post", backref="user", cascade="all,delete-orphan")
 
+    @property
+    def fullname(self):
+        """Returns the full name of the user"""
+        return (f"{self.first_name} {self.last_name}")
+
 
 class Post(db.Model):
     """Creates the model table"""

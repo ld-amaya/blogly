@@ -4,6 +4,13 @@
 {% block content %}
         <div class="col-4 user_list">
             <h1>List of users</h1>
+            {% with messages = get_flashed_messages(with_categories =true) %}
+                {% if messages %}
+                    {% for category, msg in messages %}
+                    <span class='{{category}}'>{{msg}}</span>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
             <ol>
                 {% for user in users %}        
                     <li><a href= '/users/{{user.id}}'>{{user.first_name}} {{user.last_name}}</a></li>
