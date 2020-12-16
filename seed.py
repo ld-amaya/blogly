@@ -1,4 +1,4 @@
-from models import User, db, Post
+from models import User, db, Post, Tag, PostTag
 from app import app
 
 
@@ -47,4 +47,24 @@ db.session.add(blog3)
 db.session.add(blog4)
 
 # Commit database
+db.session.commit()
+
+
+# Create dummy tags
+tag1 = Tag(name='Biking')
+tag2 = Tag(name='Hiking')
+
+db.session.add(tag1)
+db.session.add(tag2)
+db.session.commit()
+
+
+# create post_tag
+posttag1 = PostTag(post_id=1,
+                   tag_id=1)
+posttag2 = PostTag(post_id=2,
+                   tag_id=2)
+
+db.session.add(posttag1)
+db.session.add(posttag2)
 db.session.commit()
