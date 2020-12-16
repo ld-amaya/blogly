@@ -33,7 +33,9 @@ class User(db.Model):
     image_url = db.Column(db.Text(),
                           nullable=False)
 
-    post = db.relationship("Post", backref="user", cascade="all,delete-orphan")
+    post = db.relationship("Post",
+                           backref="user",
+                           cascade="all,delete-orphan")
 
     @property
     def fullname(self):
@@ -69,3 +71,34 @@ class Post(db.Model):
         """Generates a formatted date"""
 
         return self.created_at.strftime("%a %b %-d %Y, %-I:%M %p")
+
+
+class Tag(db.Model):
+    """Creates a tag model"""
+
+    __tablename__ = "tags"
+    id = db.Column(db.Integer,
+                   primary_key=True,
+                   autoincrement=True)
+
+    name = db.Column(db.String(50),
+                     nullable=False,
+                     unique=True)
+
+    post = db.relationship("Post",
+                           secondary="post_tags",
+                           backref="tag")
+
+
+class PostTag(db.Model):
+    """Creates a post_tag model and relationship"""
+
+    __tablename__ = "post_tags"
+
+    post_id = db.Column(db.Integer,
+                        db.ForeignKey('posts.id'),
+                        primary_key=True)
+
+    tag_id = db.Column(db.Integer,
+                       db.ForeignKey('tags.id'),
+                       primary_key=True)
