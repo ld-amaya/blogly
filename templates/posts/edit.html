@@ -14,6 +14,22 @@
         <label for="content">Content</label>
         <textarea class = "form-control" name = "content" id ="content">{{post.content}}</textarea>
     </div>
+    <!-- loop the tags  -->
+    <span class="tag_name">Select Tags:</span><br/>
+    <div class="form-group form-check">
+        <div class="row">
+            {% for tag in tags %}
+                <div class="col-md-2">
+                    <input type="checkbox" class = "form-check-input" name ="tag_post" value = '{{tag.id}}' 
+                        {% if tag in post.tag %} 
+                            checked
+                        {% endif %}
+                    >
+                    <label for=""> {{tag.name}} </label>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
     <div class="form-group">
         <a href="/posts/{{post.id}}" class ="btn btn-info"> Cancel </a>
         <button type="submit" class ="btn btn-primary">Update Blog</button>

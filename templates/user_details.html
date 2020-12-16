@@ -17,6 +17,7 @@
                     <div class="card-text">
                         <form>
                             <button formaction="/users/{{user.id}}/edit" formethod="GET" class="btn btn-primary btn-sm">Edit</button>
+                            <a href="/users" class = 'btn btn-success btn-sm'>User List</a>
                             <button formaction="/users/{{user.id}}/delete" formmethod="POST" class = "btn btn-danger btn-sm">Delete</button>
                             <div class ="mt-2">
                                 {% with messages = get_flashed_messages(with_categories=true) %}

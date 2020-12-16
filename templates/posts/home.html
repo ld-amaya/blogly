@@ -8,14 +8,21 @@
     <div class="justify-content-between">
         {% for post in posts %}
             <div class ="blog_posts">
-                <h3><a href='/posts/{{post.id}}'> {{post.title}}</a></h3>
+                <h4><a href='/posts/{{post.id}}'> {{post.title}}</a></h4>
                 <small>Created by <a href="/users/{{post.user.id}}"> {{post.user.first_name}} {{post.user.last_name}} </a></small>
 
                 <p class ="mt-3">
                     {{post.content}}
                 </p>
                  <small>{{post.this_date}}</small>
-            </div>
+                 <br />
+                 <span class="tag_name">Tags:</span>
+                 <div>
+                    {% for tag in post.tag %}
+                        <a href="/tags/{{tag.id}}" class ="btn btn-primary btn-sm tag_title"> {{tag.name}} </a>
+                    {% endfor %}  
+                </div>
+            </div>  
         {% endfor %}
     </div>
 
